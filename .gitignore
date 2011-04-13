@@ -1,0 +1,11 @@
+.settings/*
+.actionScriptProperties
+.flexProperties
+.flexLibProperties
+.FlexUnitSettings
+.project
+.buildpath
+ 
+Icon
+Thumbs.db
+.DS_Store
