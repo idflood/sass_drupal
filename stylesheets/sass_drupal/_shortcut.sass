@@ -1,0 +1,94 @@
+@mixin shortcut
+  div
+    &#toolbar
+      a#edit-shortcuts
+        float: right
+        padding: 5px 10px 5px 5px
+        line-height: 24px
+        color: #fefefe
+        &:focus, &:hover, &.active
+          color: #fff
+          text-decoration: underline
+      div.toolbar-shortcuts
+        ul
+          padding: 5px 0 2px 0
+          height: 28px
+          line-height: 24px
+          float: left
+          /* LTR
+          margin-left: 5px
+          /* LTR
+          li a
+            padding: 0 5px 0 5px
+            margin-right: 5px
+            /* LTR
+            -moz-border-radius: 5px
+            -webkit-border-radius: 5px
+            border-radius: 5px
+            &:focus, &:hover
+              background: #555
+            &.active
+              &:focus
+                background: #555
+              &:hover
+                background: #000
+              background: #000
+        span.icon
+          float: left
+          /* LTR
+          background: #444
+          width: 30px
+          height: 30px
+          margin-right: 5px
+          /* LTR
+          -moz-border-radius: 5px
+          -webkit-border-radius: 5px
+          border-radius: 5px
+    &.add-or-remove-shortcuts
+      padding-top: 5px
+      a span.icon
+        display: block
+        width: 12px
+        background: transparent url(shortcut.png) no-repeat scroll 0 0
+        height: 12px
+        float: left
+        margin-left: 8px
+    &.add-shortcut a
+      &:focus span.icon, &:hover span.icon
+        background-position: 0 -12px
+    &.remove-shortcut a
+      span.icon
+        background-position: -12px 0
+      &:focus span.icon, &:hover span.icon
+        background-position: -12px -12px
+    &.add-or-remove-shortcuts a
+      span.text
+        float: left
+        padding-left: 10px
+        display: none
+      &:focus span.text, &:hover span.text
+        font-size: 10px
+        line-height: 12px
+        color: #fff
+        background-color: #5f605b
+        display: block
+        padding-right: 6px
+        /* LTR
+        cursor: pointer
+        -moz-border-radius: 0 5px 5px 0
+        /* LTR
+        -webkit-border-top-right-radius: 5px
+        /* LTR
+        -webkit-border-bottom-right-radius: 5px
+        /* LTR
+        border-radius: 0 5px 5px 0
+        /* LTR
+
+  #shortcut-set-switch
+    .form-type-radios
+      padding-bottom: 0
+      margin-bottom: 0
+    .form-item-new
+      padding-top: 0
+      padding-left: 17px
+      /* LTR

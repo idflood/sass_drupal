@@ -1,0 +1,40 @@
+@mixin system_base_autocomplete
+  html.js input
+    &.form-autocomplete
+      background-position: 0% 2px
+    &.throbbing
+      background-position: 0% -18px
+
+@mixin system_base_progress_bar
+  .progress .percentage
+    float: left
+
+  .progress-disabled
+    float: right
+
+  .ajax-progress
+    float: right
+    .throbber
+      float: right
+      
+@mixin system_base_tabledrag
+  .draggable a.tabledrag-handle
+    float: right
+    margin: -0.4em -0.5em -0.4em 0
+    padding: 0.42em 0.5em 0.42em 1.5em
+
+  div
+    &.indentation
+      float: right
+      margin: -0.4em -0.4em -0.4em 0.2em
+      padding: 0.42em 0.6em 0.42em 0
+    &.tree-child, &.tree-child-last
+      background-position: -65px center
+
+  .tabledrag-toggle-weight-wrapper
+    text-align: left
+
+@mixin system_base
+  +system_base_autocomplete
+  +system_base_progress_bar
+  +system_base_tabledrag

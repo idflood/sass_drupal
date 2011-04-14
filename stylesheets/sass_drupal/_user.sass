@@ -1,0 +1,110 @@
+@mixin user_permissions
+  #permissions
+    td
+      &.module
+        font-weight: bold
+      &.permission
+        padding-left: 1.5em
+        /* LTR
+    tr
+      &.odd .form-item, &.even .form-item
+        white-space: normal
+
+@mixin user_admin_description
+  #user-admin-settings fieldset .fieldset-description
+    font-size: 0.85em
+    padding-bottom: .5em
+
+@mixin user_dmin_roles
+  /**
+   * Override default textfield float to put the "Add role" button next to
+   * the input textfield.
+
+  #user-admin-roles
+    td.edit-name
+      clear: both
+    .form-item-name
+      float: left
+      margin-right: 1em
+
+@mixin user_password_strength
+  .password-strength
+    width: 17em
+    float: right
+    /* LTR
+    margin-top: 1.4em
+
+  .password-strength-title
+    display: inline
+
+  .password-strength-text
+    float: right
+    /* LTR
+    font-weight: bold
+
+  .password-indicator
+    background-color: #C4C4C4
+    height: 0.3em
+    width: 100%
+    div
+      height: 100%
+      width: 0%
+      background-color: #47C965
+
+  input
+    &.password-confirm, &.password-field
+      width: 16em
+      margin-bottom: 0.4em
+
+  div
+    &.password-confirm
+      display: inline
+      padding-left: 1em
+    &.form-item div.password-suggestions
+      padding: 0.2em 0.5em
+      margin: 0.7em 0
+      width: 38.5em
+      border: 1px solid #B4B4B4
+    &.password-suggestions ul
+      margin-bottom: 0
+
+  .password-parent
+    margin: 0
+    width: 34.3em
+
+@mixin user_password_confirm
+  .confirm-parent
+    margin: 0
+
+  div.password-confirm
+    visibility: hidden
+
+@mixin user_profile
+  .profile
+    clear: both
+    margin: 1em 0
+    .user-picture
+      float: right
+      /* LTR
+      margin: 0 1em 1em 0
+      /* LTR
+    h3
+      border-bottom: 1px solid #ccc
+    dl
+      margin: 0 0 1.5em 0
+    dt
+      margin: 0 0 0.2em 0
+      font-weight: bold
+    dd
+      margin: 0 0 1em 0
+
+@mixin user
+  +user_permissions
+  +user_admin_description
+  +user_dmin_roles
+  +user_password_strength
+  +user_password_confirm
+  +user_profile
+
+@mixin user_rtl
+  

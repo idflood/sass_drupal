@@ -1,1 +1,42 @@
-// This is your framework's main stylesheet. Use it to import all default modules.
+@import "sass_drupal/system_base"
+@import "sass_drupal/system_menu"
+@import "sass_drupal/system_messages"
+@import "sass_drupal/system_theme"
+@import "sass_drupal/overlay_parent"
+@import "sass_drupal/overlay_child"
+@import "sass_drupal/contextual"
+@import "sass_drupal/comment"
+@import "sass_drupal/field"
+@import "sass_drupal/node"
+@import "sass_drupal/search"
+@import "sass_drupal/user"
+@import "sass_drupal/shortcut"
+@import "sass_drupal/toolbar"
+
+@mixin drupal_base
+  +system_base
+  +system_menu
+  +system_messages
+  +system_theme
+  //+overlay_parent
+  //+overlay_child
+  +contextual
+  +comment
+  +field
+  +node
+  +search
+  +user
+  +shortcut
+  +toolbar
+
+@mixin drupal_base_rtl
+  +system_menu_rtl
+  +system_messages_rtl
+  +system_theme_rtl
+  +contextual_rtl
+  +comment_rtl
+  +field_rtl
+  +node_rtl
+  +search_rtl
+  +user_rtl
+  +toolbar_rtl

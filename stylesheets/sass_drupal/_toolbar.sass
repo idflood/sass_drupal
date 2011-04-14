@@ -1,0 +1,193 @@
+@mixin toolbar
+  body
+    &.toolbar
+      padding-top: 2.2em
+    &.toolbar-drawer
+      padding-top: 5.3em
+
+  /**
+   * Aggressive resets so we can achieve a consistent look in hostile CSS
+   * environments.
+
+  #toolbar
+    border: 0
+    font-size: 100%
+    line-height: inherit
+    list-style: none
+    margin: 0
+    outline: 0
+    padding: 0
+    text-align: left
+    /* LTR
+    vertical-align: baseline
+    *
+      border: 0
+      font-size: 100%
+      line-height: inherit
+      list-style: none
+      margin: 0
+      outline: 0
+      padding: 0
+      text-align: left
+      /* LTR
+      vertical-align: baseline
+    background: #666
+    color: #ccc
+    font: normal small "Lucida Grande", Verdana, sans-serif
+    left: 0
+    margin: 0 -20px
+    padding: 0 20px
+    position: fixed
+    right: 0
+    top: 0
+    -moz-box-shadow: 0 3px 20px #000
+    -webkit-box-shadow: 0 3px 20px #000
+    box-shadow: 0 3px 20px #000
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000, direction='180', strength='10')
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#000000, direction='180', strength='10')"
+    z-index: 600
+    div.collapsed
+      display: none
+      visibility: hidden
+    a
+      color: #fff
+      font-size: .846em
+      text-decoration: none
+    ul li
+      float: left
+      /* LTR
+      a
+        float: left
+        /* LTR
+    div.toolbar-menu
+      background: #000
+      line-height: 20px
+      padding: 5px 50px 5px 10px
+      /* LTR
+      position: relative
+
+  /**
+   * Base styles.
+   *
+   * We use a keyword for the toolbar font size to make it display consistently
+   * across different themes, while still allowing browsers to resize the text.
+
+  /**
+   * Administration menu.
+
+  #toolbar-home a span
+    background: url(toolbar.png) no-repeat 0 -45px
+    display: block
+    height: 14px
+    margin: 3px 0px
+    text-indent: -9999px
+    vertical-align: text-bottom
+    width: 11px
+
+  #toolbar-user
+    float: right
+    /* LTR
+
+  #toolbar-menu
+    float: left
+    /* LTR
+
+  #toolbar div
+    &.toolbar-menu
+      a
+        &.toggle
+          background: url(toolbar.png) 0 -20px no-repeat
+          bottom: 0
+          cursor: pointer
+          height: 25px
+          overflow: hidden
+          position: absolute
+          right: 10px
+          /* LTR
+          text-indent: -9999px
+          width: 25px
+          &:focus, &:hover
+            background-position: -50px -20px
+        &.toggle-active
+          background-position: -25px -20px
+          &.toggle
+            &:focus, &:hover
+              background-position: -75px -20px
+      ul li
+        a
+          padding: 0 10px
+          -moz-border-radius: 10px
+          -webkit-border-radius: 10px
+          border-radius: 10px
+          &:focus, &:hover, &:active
+            background: #444
+          &.active
+            &:focus
+              background: #444
+            &:hover, &:active
+              background: url(toolbar.png) 0 0 repeat-x
+              text-shadow: #333 0 1px 0
+            background: url(toolbar.png) 0 0 repeat-x
+            text-shadow: #333 0 1px 0
+        &.active-trail a
+          background: url(toolbar.png) 0 0 repeat-x
+          text-shadow: #333 0 1px 0
+    &.toolbar-drawer
+      position: relative
+      padding: 0 10px
+
+  /**
+   * Collapsed drawer of additional toolbar content.
+
+  /**
+   * IE 6 Fix.
+   *
+   * IE 6 shows elements with position:fixed as position:static so we replace
+   * it with position:absolute; toolbar needs its z-index to stay above overlay.
+
+  * html #toolbar
+    left: -20px
+    margin: 0
+    padding-right: 0
+    position: absolute
+    right: 0
+    width: 100%
+
+@mixin toolbar_rtl
+  #toolbar
+    text-align: right
+    *
+      text-align: right
+    ul li
+      float: right
+      a
+        display: inline-block
+        float: none
+        zoom: 1
+    div.toolbar-menu
+      padding: 5px 50px 5px 50px
+
+  #toolbar-user
+    float: left
+
+  #toolbar ul#toolbar-user li
+    float: none
+    display: inline
+
+  #toolbar-menu
+    float: none
+
+  #toolbar-home
+    float: right
+
+  #toolbar
+    ul li.home a
+      position: absolute
+      right: 10px
+    div.toolbar-menu a.toggle
+      left: 10px
+      right: auto
+
+  * html #toolbar
+    left: 0
+    padding-left: 0

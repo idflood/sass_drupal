@@ -1,0 +1,58 @@
+@mixin search_form
+  .search-form
+    margin-bottom: 1em
+    input
+      margin-top: 0
+      margin-bottom: 0
+
+@mixin search_results
+  .search-results
+    list-style: none
+    p
+      margin-top: 0
+    .title
+      font-size: 1.2em
+    li
+      margin-bottom: 1em
+    .search-snippet-info
+      padding-left: 1em
+      /* LTR
+    .search-info
+      font-size: 0.85em
+
+@mixin search_results_rtl
+  .search-results .search-snippet-info
+    padding-right: 1em
+    /* LTR
+
+@mixin search_advanced
+  .search-advanced
+    .criterion
+      float: left
+      /* LTR
+      margin-right: 2em
+      /* LTR
+    .action
+      float: left
+      /* LTR
+      clear: left
+      /* LTR
+
+@mixin search_advanced_rtl
+  .search-advanced
+    .criterion
+      float: right
+      margin-right: 0
+      margin-left: 2em
+    .action
+      float: right
+      clear: right
+
+@mixin search
+  +search_form
+  +search_results
+  +search_advanced
+
+@mixin search_rtl
+  +search_advanced_rtl
+  +search_results_rtl
