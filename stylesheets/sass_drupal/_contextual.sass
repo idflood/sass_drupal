@@ -1,3 +1,5 @@
+$drupal_contextual_border_radius: 4px !default
+
 @mixin contextual_links_region
   .contextual-links-region
     outline: none
@@ -31,10 +33,11 @@
     /* LTR
     width: 28px
     overflow: hidden
-    -khtml-border-radius: 4px
-    -moz-border-radius: 4px
-    -webkit-border-radius: 4px
-    border-radius: 4px
+    @if $drupal_contextual_border_radius != 0
+      -khtml-border-radius: $drupal_contextual_border_radius
+      -moz-border-radius: $drupal_contextual_border_radius
+      -webkit-border-radius: $drupal_contextual_border_radius
+      border-radius: $drupal_contextual_border_radius
     &:hover
       background-position: 2px -18px
 
@@ -47,10 +50,11 @@
       border-bottom: none
       position: relative
       z-index: 1
-      -moz-border-radius: 4px 4px 0 0
-      -webkit-border-bottom-left-radius: 0
-      -webkit-border-bottom-right-radius: 0
-      border-radius: 4px 4px 0 0
+      @if $drupal_contextual_border_radius != 0
+        -moz-border-radius: $drupal_contextual_border_radius $drupal_contextual_border_radius 0 0
+        -webkit-border-bottom-left-radius: 0
+        -webkit-border-bottom-right-radius: 0
+        border-radius: $drupal_contextual_border_radius $drupal_contextual_border_radius 0 0
     &.contextual-links-wrapper ul.contextual-links
       background-color: #fff
       border: 1px solid #ccc
@@ -62,16 +66,17 @@
       text-align: left
       top: 18px
       white-space: nowrap
-      -moz-border-radius: 4px 0 4px 4px
-      /* LTR
-      -webkit-border-bottom-left-radius: 4px
-      -webkit-border-bottom-right-radius: 4px
-      -webkit-border-top-right-radius: 0
-      /* LTR
-      -webkit-border-top-left-radius: 4px
-      /* LTR
-      border-radius: 4px 0 4px 4px
-      /* LTR
+      @if $drupal_contextual_border_radius != 0
+        -moz-border-radius: $drupal_contextual_border_radius 0 $drupal_contextual_border_radius $drupal_contextual_border_radius
+        /* LTR
+        -webkit-border-bottom-left-radius: $drupal_contextual_border_radius
+        -webkit-border-bottom-right-radius: $drupal_contextual_border_radius
+        -webkit-border-top-right-radius: 0
+        /* LTR
+        -webkit-border-top-left-radius: $drupal_contextual_border_radius
+        /* LTR
+        border-radius: $drupal_contextual_border_radius 0 $drupal_contextual_border_radius $drupal_contextual_border_radius
+        /* LTR
 
   .contextual-links-region:hover a.contextual-links-trigger
     display: block
@@ -107,10 +112,11 @@
     left: 5px
     right: auto
     ul.contextual-links
-      -moz-border-radius: 0 4px 4px 4px
-      -webkit-border-top-left-radius: 0
-      -webkit-border-top-right-radius: 4px
-      border-radius: 0 4px 4px 4px
+      @if $drupal_contextual_border_radius != 0
+        -moz-border-radius: 0 $drupal_contextual_border_radius $drupal_contextual_border_radius $drupal_contextual_border_radius
+        -webkit-border-top-left-radius: 0
+        -webkit-border-top-right-radius: $drupal_contextual_border_radius
+        border-radius: 0 $drupal_contextual_border_radius $drupal_contextual_border_radius $drupal_contextual_border_radius
       left: 0
       right: auto
 

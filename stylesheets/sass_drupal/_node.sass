@@ -1,12 +1,16 @@
+$drupal_node_unpublished_background: #fff4f4 !default
+$drupal_node_preview_background: #ffffea !default
+$drupal_node_revision_background: #ffc !default
+
 @mixin node
   .node-unpublished
-    background-color: #fff4f4
+    background-color: $drupal_node_unpublished_background
 
   .preview .node
-    background-color: #ffffea
+    background-color: $drupal_node_preview_background
 
   td.revision-current
-    background: #ffc
+    background: $drupal_node_revision_background
 
 @mixin node_rtl
   #node-admin-content dl.multiselect dd .form-item label
