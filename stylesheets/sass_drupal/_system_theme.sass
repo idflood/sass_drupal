@@ -121,7 +121,7 @@
     text-align: right
     /* LTR
     a
-      background: url(../../misc/help.png) 0 50% no-repeat
+      background: image_url("img/help.png") 0 50% no-repeat
       /* LTR
       padding: 1px 0 1px 20px
       /* LTR
@@ -154,12 +154,12 @@
 @mixin system_collapsible_fieldset
   html.js fieldset
     &.collapsible .fieldset-legend
-      background: url(../../misc/menu-expanded.png) 5px 65% no-repeat
+      background: image_url("img/menu-expanded.png") 5px 65% no-repeat
       /* LTR
       padding-left: 15px
       /* LTR
     &.collapsed .fieldset-legend
-      background-image: url(../../misc/menu-collapsed.png)
+      background-image: image_url("img/menu-collapsed.png")
       /* LTR
       background-position: 5px 50%
       /* LTR
@@ -176,7 +176,7 @@
       padding-left: 0
       padding-right: 15px
     &.collapsed .fieldset-legend
-      background-image: url(../../misc/menu-collapsed-rtl.png)
+      background-image: image_url("img/menu-collapsed-rtl.png")
       background-position: 98% 50%
       
 @mixin system_tabledrag
@@ -210,7 +210,7 @@
       -webkit-border-radius: 3px
       border-radius: 3px
     .filled
-      background: #0072b9 url(../../misc/progress.gif)
+      background: #0072b9 image_url("img/progress.gif")
 
 @mixin system_theme
   +system_theme_html
