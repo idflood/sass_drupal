@@ -1,4 +1,9 @@
 $drupal_toolbar_font: normal small "Lucida Grande", Verdana, sans-serif !default
+$drupal_toolbar_font_color: #fff !default
+$drupal_toolbar_background_color: #000 !default
+$drupal_toolbar_background_color_hover: #444 !default
+$drupal_toolbar_shortcut_background_color: #333 !default
+$drupal_toolbar_item_border_radius: 10px !default
 
 @mixin toolbar
   body
@@ -33,7 +38,7 @@ $drupal_toolbar_font: normal small "Lucida Grande", Verdana, sans-serif !default
       text-align: left
       /* LTR
       vertical-align: baseline
-    background: #666
+    background: $drupal_toolbar_shortcut_background_color
     color: #ccc
     font: $drupal_toolbar_font
     left: 0
@@ -52,7 +57,7 @@ $drupal_toolbar_font: normal small "Lucida Grande", Verdana, sans-serif !default
       display: none
       visibility: hidden
     a
-      color: #fff
+      color: $drupal_toolbar_font_color
       font-size: .846em
       text-decoration: none
     ul li
@@ -62,7 +67,7 @@ $drupal_toolbar_font: normal small "Lucida Grande", Verdana, sans-serif !default
         float: left
         /* LTR
     div.toolbar-menu
-      background: #000
+      background: $drupal_toolbar_background_color
       line-height: 20px
       padding: 5px 50px 5px 10px
       /* LTR
@@ -118,14 +123,15 @@ $drupal_toolbar_font: normal small "Lucida Grande", Verdana, sans-serif !default
       ul li
         a
           padding: 0 10px
-          -moz-border-radius: 10px
-          -webkit-border-radius: 10px
-          border-radius: 10px
+          @if $drupal_toolbar_item_border_radius != 0
+            -moz-border-radius: $drupal_toolbar_item_border_radius
+            -webkit-border-radius: $drupal_toolbar_item_border_radius
+            border-radius: $drupal_toolbar_item_border_radius
           &:focus, &:hover, &:active
-            background: #444
+            background: $drupal_toolbar_background_color_hover
           &.active
             &:focus
-              background: #444
+              background: $drupal_toolbar_background_color_hover
             &:hover, &:active
               background: image_url("drupal/toolbar.png") 0 0 repeat-x
               text-shadow: #333 0 1px 0

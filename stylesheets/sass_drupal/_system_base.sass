@@ -5,6 +5,42 @@
     &.throbbing
       background-position: 0% -18px
 
+  #autocomplete
+    border: 1px solid
+    overflow: hidden
+    position: absolute
+    z-index: 100
+    ul
+      list-style: none
+      list-style-image: none
+      margin: 0
+      padding: 0
+    li
+      background: #fff
+      color: #000
+      cursor: default
+      white-space: pre
+
+  /* Animated throbber
+
+  html.js
+    input
+      &.form-autocomplete
+        background-image: url(../../misc/throbber.gif)
+        background-position: 100% 2px
+        /* LTR
+        background-repeat: no-repeat
+      &.throbbing
+        background-position: 100% -18px
+        /* LTR
+    fieldset.collapsed
+      border-bottom-width: 0
+      border-left-width: 0
+      border-right-width: 0
+      height: 1em
+      .fieldset-wrapper
+        display: none
+
 @mixin system_base_progress_bar
   .progress .percentage
     float: left
@@ -16,7 +52,81 @@
     float: right
     .throbber
       float: right
-      
+  
+  /**
+   * Progress behavior.
+   *
+   * @see progress.js
+  /* Bar
+
+  .progress
+    .bar
+      background-color: #fff
+      border: 1px solid
+    .filled
+      background-color: #000
+      height: 1.5em
+      width: 5px
+    .percentage
+      float: right
+      /* LTR
+
+  .progress-disabled
+    float: left
+    /* LTR
+
+  /* Throbber
+
+  .ajax-progress
+    float: left
+    /* LTR
+    .throbber
+      background: transparent url(../../misc/throbber.gif) no-repeat 0px -18px
+      float: left
+      /* LTR
+      height: 15px
+      margin: 2px
+      width: 15px
+
+  tr .ajax-progress .throbber
+    margin: 0 2px
+
+  .ajax-progress-bar
+    width: 16em
+
+@mixin system_base_fieldset_collapsible
+  /**
+   * Collapsible fieldsets.
+   *
+   * @see collapse.js
+
+  fieldset.collapsible
+    position: relative
+    .fieldset-legend
+      display: block
+
+@mixin system_base_resizable_textarea
+  /**
+   * Resizable textareas.
+   *
+   * @see textarea.js
+
+  .form-textarea-wrapper textarea
+    display: block
+    margin: 0
+    width: 100%
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+
+  .resizable-textarea .grippie
+    background: #eeeeee url(../../misc/grippie.png) no-repeat center 2px
+    border: 1px solid #ddd
+    border-top-width: 0
+    cursor: s-resize
+    height: 9px
+    overflow: hidden
+   
 @mixin system_base_tabledrag
   .draggable a.tabledrag-handle
     float: right
@@ -33,8 +143,153 @@
 
   .tabledrag-toggle-weight-wrapper
     text-align: left
+  
+  /**
+   * TableDrag behavior.
+   *
+   * @see tabledrag.js
+
+  body.drag
+    cursor: move
+
+  .draggable a.tabledrag-handle
+    cursor: move
+    float: left
+    /* LTR
+    height: 1.7em
+    margin: -0.4em 0 -0.4em -0.5em
+    /* LTR
+    padding: 0.42em 1.5em 0.42em 0.5em
+    /* LTR
+    text-decoration: none
+
+  a
+    &.tabledrag-handle
+      &:hover
+        text-decoration: none
+      .handle
+        background: url(../../misc/draggable.png) no-repeat 0 0
+        height: 13px
+        margin-top: 4px
+        width: 13px
+    &.tabledrag-handle-hover .handle
+      background-position: 0 -20px
+
+  div
+    &.indentation
+      float: left
+      /* LTR
+      height: 1.7em
+      margin: -0.4em 0.2em -0.4em -0.4em
+      /* LTR
+      padding: 0.42em 0 0.42em 0.6em
+      /* LTR
+      width: 20px
+    &.tree-child
+      background: url(../../misc/tree.png) no-repeat 11px center
+      /* LTR
+    &.tree-child-last
+      background: url(../../misc/tree-bottom.png) no-repeat 11px center
+      /* LTR
+    &.tree-child-horizontal
+      background: url(../../misc/tree.png) no-repeat -11px center
+
+  .tabledrag-toggle-weight-wrapper
+    text-align: right
+    /* LTR
+
+@mixin system_base_tableheader
+  /**
+   * TableHeader behavior.
+   *
+   * @see tableheader.js
+
+  table.sticky-header
+    background-color: #fff
+    margin-top: 0
+
+@mixin system_base_utils
+  /**
+   * Inline items.
+
+  .container-inline
+    div, label
+      display: inline
+    .fieldset-wrapper
+      display: block
+
+  /* Fieldset contents always need to be rendered as block.
+
+  /**
+   * Prevent text wrapping.
+
+  .nowrap
+    white-space: nowrap
+
+  /**
+   * For anything you want to hide on page load when JS is enabled, so
+   * that you can use the JS to control visibility and avoid flicker.
+
+  html.js .js-hide, .element-hidden
+    display: none
+
+  /**
+   * Hide elements from all users.
+   *
+   * Used for elements which should not be immediately displayed to any user. An
+   * example would be a collapsible fieldset that will be expanded with a click
+   * from a user. The effect of this class can be toggled with the jQuery show()
+   * and hide() functions.
+
+  /**
+   * Hide elements visually, but keep them available for screen-readers.
+   *
+   * Used for information required for screen-reader users to understand and use
+   * the site where visual display is undesirable. Information provided in this
+   * manner should be kept concise, to avoid unnecessary burden on the user.
+   * "!important" is used to prevent unintentional overrides.
+
+  .element-invisible
+    position: absolute !important
+    clip: rect(1px 1px 1px 1px)
+    /* IE6, IE7
+    clip: rect(1px, 1px, 1px, 1px)
+    &.element-focusable
+      &:active, &:focus
+        position: static !important
+        clip: auto
+
+  /**
+   * The .element-focusable class extends the .element-invisible class to allow
+   * the element to be focusable when navigated to via the keyboard.
+
+  /**
+   * Markup free clearing.
+   *
+   * @see http://perishablepress.com/press/2009/12/06/new-clearfix-hack
+
+  .clearfix:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+
+  /* IE6
+
+  *
+    html .clearfix
+      height: 1%
+    &:first-child + html .clearfix
+      min-height: 1%
+
+  /* IE7
 
 @mixin system_base
   +system_base_autocomplete
   +system_base_progress_bar
   +system_base_tabledrag
+  +system_base_fieldset_collapsible
+  +system_base_resizable_textarea
+  +system_base_tableheader
+  +system_base_utils
