@@ -1,0 +1,90 @@
+$drupal_vertical_tabs_border: 1px solid #ccc !default
+
+@mixin vertical_tabs
+  div.vertical-tabs
+    margin: 1em 0 1em 15em
+    /* LTR
+    border: $drupal_vertical_tabs_border
+    position: relative
+    /* IE6/7
+
+  .vertical-tabs
+    ul.vertical-tabs-list
+      width: 15em
+      list-style: none
+      list-style-image: none
+      /* IE6
+      border-top: $drupal_vertical_tabs_border
+      padding: 0
+      position: relative
+      /* IE6
+      margin: -1px 0 -1px -15em
+      /* LTR
+      float: left
+      /* LTR
+    fieldset.vertical-tabs-pane
+      margin: 0 !important
+      padding: 0 1em
+      border: 0
+    legend
+      display: none
+    ul
+      &.vertical-tabs-list
+        li
+          background: #eee
+          border: $drupal_vertical_tabs_border
+          border-top: 0
+          padding: 0
+          margin: 0
+          min-width: 0
+          /* IE7
+          a
+            display: block
+            text-decoration: none
+            padding: 0.5em 0.6em
+            &:focus strong, &:active strong
+              text-decoration: underline
+            &:hover
+              strong
+                text-decoration: underline
+              outline: 1px dotted
+          &.selected
+            background-color: #fff
+            border-right-width: 0
+            /* LTR
+        .selected strong
+          color: #000
+        .summary
+          display: block
+      &.vertical-tabs ul.vertical-tabs-list .summary
+        line-height: normal
+        margin-bottom: 0
+    .form-type-textfield input
+      width: 100%
+      -moz-box-sizing: border-box
+      -webkit-box-sizing: border-box
+      box-sizing: border-box
+
+  /* Layout of each tab
+
+  /**
+   * Prevent text inputs from overflowing when container is too narrow. "width" is
+   * applied to override hardcoded cols or size attributes and used in conjunction
+   * with "box-sizing" to prevent box model issues from occurring in most browsers.
+
+  * html .vertical-tabs
+    .form-type-textfield, .form-textarea-wrapper
+      width: 95%
+
+@mixin vertical_tabs_rtl
+  div.vertical-tabs
+    margin-left: 0
+    margin-right: 15em
+
+  .vertical-tabs ul.vertical-tabs-list
+    margin-left: 0
+    margin-right: -15em
+    float: right
+    li.selected
+      border-left-width: 0
+      border-right-width: 1px

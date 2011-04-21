@@ -1,3 +1,9 @@
+$drupal_shortcut_background_color_hover: #555 !default
+$drupal_shortcut_background_color_active: #000 !default
+$drupal_shortcut_edit_color: #fefefe !default
+$drupal_shortcut_edit_color_hover: #fff !default
+$drupal_shortcut_item_border_radius: 5px !default
+
 @mixin shortcut
   div
     &#toolbar
@@ -5,9 +11,9 @@
         float: right
         padding: 5px 10px 5px 5px
         line-height: 24px
-        color: #fefefe
+        color: $drupal_shortcut_edit_color
         &:focus, &:hover, &.active
-          color: #fff
+          color: $drupal_shortcut_edit_color_hover
           text-decoration: underline
       div.toolbar-shortcuts
         ul
@@ -21,18 +27,20 @@
           li a
             padding: 0 5px 0 5px
             margin-right: 5px
-            /* LTR
-            -moz-border-radius: 5px
-            -webkit-border-radius: 5px
-            border-radius: 5px
+            
+            @if $drupal_shortcut_item_border_radius != 0
+              /* LTR
+              -moz-border-radius: $drupal_shortcut_item_border_radius
+              -webkit-border-radius: $drupal_shortcut_item_border_radius
+              border-radius: $drupal_shortcut_item_border_radius
             &:focus, &:hover
-              background: #555
+              background: $drupal_shortcut_background_color_hover
             &.active
               &:focus
-                background: #555
+                background: $drupal_shortcut_background_color_hover
               &:hover
-                background: #000
-              background: #000
+                background: $drupal_shortcut_background_color_active
+              background: $drupal_shortcut_background_color_active
         span.icon
           float: left
           /* LTR
@@ -40,10 +48,11 @@
           width: 30px
           height: 30px
           margin-right: 5px
-          /* LTR
-          -moz-border-radius: 5px
-          -webkit-border-radius: 5px
-          border-radius: 5px
+          @if $drupal_shortcut_item_border_radius != 0
+            /* LTR
+            -moz-border-radius: $drupal_shortcut_item_border_radius
+            -webkit-border-radius: $drupal_shortcut_item_border_radius
+            border-radius: $drupal_shortcut_item_border_radius
     &.add-or-remove-shortcuts
       padding-top: 5px
       a span.icon
@@ -75,14 +84,15 @@
         padding-right: 6px
         /* LTR
         cursor: pointer
-        -moz-border-radius: 0 5px 5px 0
-        /* LTR
-        -webkit-border-top-right-radius: 5px
-        /* LTR
-        -webkit-border-bottom-right-radius: 5px
-        /* LTR
-        border-radius: 0 5px 5px 0
-        /* LTR
+        @if $drupal_shortcut_item_border_radius != 0
+          -moz-border-radius: 0 5px 5px 0
+          /* LTR
+          -webkit-border-top-right-radius: 5px
+          /* LTR
+          -webkit-border-bottom-right-radius: 5px
+          /* LTR
+          border-radius: 0 5px 5px 0
+          /* LTR
 
   #shortcut-set-switch
     .form-type-radios

@@ -12,6 +12,9 @@
 @import "sass_drupal/user"
 @import "sass_drupal/shortcut"
 @import "sass_drupal/toolbar"
+@import "sass_drupal/vertical-tabs"
+
+@import "sass_drupal/print"
 
 @mixin drupal_base
   +system_base
@@ -28,6 +31,7 @@
   +user
   +shortcut
   +toolbar
+  +vertical_tabs
 
 @mixin drupal_base_rtl
   +system_menu_rtl
@@ -40,3 +44,10 @@
   +search_rtl
   +user_rtl
   +toolbar_rtl
+  +vertical_tabs_rtl
+
+@mixin drupal_base_print
+  +drupal_print
+
+@mixin drupal_base_print_rtl
+  +drupal_print_rtl

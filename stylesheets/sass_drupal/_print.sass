@@ -1,0 +1,32 @@
+@mixin drupal_print
+  body
+    margin: 1em
+    background-color: #fff
+
+  th
+    text-align: left
+    /* LTR
+    color: #006
+    border-bottom: 1px solid #ccc
+
+  tr
+    &.odd
+      background-color: #ddd
+    &.even
+      background-color: #fff
+
+  td
+    padding: 5px
+
+  #menu
+    visibility: hidden
+
+  #main
+    margin: 1em
+
+@mixin drupal_print_rtl
+  body
+    direction: rtl
+
+  th
+    text-align: right
