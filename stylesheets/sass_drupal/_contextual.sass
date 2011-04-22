@@ -1,4 +1,12 @@
+$drupal_contextual_icon_image: "drupal/gear-select.png" !default
+$drupal_contextual_outline_active: #999 dashed 1px !default
+
 $drupal_contextual_border_radius: 4px !default
+$drupal_contextual_border_color: #ccc !default
+$drupal_contextual_background_color: #fff !default
+
+$drupal_contextual_link_color: #333 !important !default
+$drupal_contextual_background_color_hover: #bfdcee !default
 
 @mixin contextual_links_region
   .contextual-links-region
@@ -6,7 +14,7 @@ $drupal_contextual_border_radius: 4px !default
     position: relative
 
   .contextual-links-region-active
-    outline: #999 dashed 1px
+    outline: $drupal_contextual_outline_active
 
 @mixin contextual_links
   div.contextual-links-wrapper
@@ -22,7 +30,7 @@ $drupal_contextual_border_radius: 4px !default
     display: block
 
   a.contextual-links-trigger
-    background: transparent image_url("drupal/gear-select.png") no-repeat 2px 0
+    background: transparent image_url($drupal_contextual_icon_image) no-repeat 2px 0
     border: 1px solid transparent
     display: none
     height: 18px
@@ -45,8 +53,8 @@ $drupal_contextual_border_radius: 4px !default
     &.contextual-links-active a.contextual-links-trigger
       background-position: 2px -18px
       background-position: 2px -18px
-      background-color: #fff
-      border-color: #ccc
+      background-color: $drupal_contextual_background_color
+      border-color: $drupal_contextual_border_color
       border-bottom: none
       position: relative
       z-index: 1
@@ -56,8 +64,8 @@ $drupal_contextual_border_radius: 4px !default
         -webkit-border-bottom-right-radius: 0
         border-radius: $drupal_contextual_border_radius $drupal_contextual_border_radius 0 0
     &.contextual-links-wrapper ul.contextual-links
-      background-color: #fff
-      border: 1px solid #ccc
+      background-color: $drupal_contextual_background_color
+      border: 1px solid $drupal_contextual_border_color
       display: none
       margin: 0
       padding: 0.25em 0
@@ -96,12 +104,12 @@ $drupal_contextual_border_radius: 4px !default
     text-decoration: none
 
   ul.contextual-links li a
-    color: #333 !important
+    color: $drupal_contextual_link_color
     display: block
     margin: 0.25em 0
     padding: 0.25em 1em 0.25em 0.5em
     &:hover
-      background-color: #bfdcee
+      background-color: $drupal_contextual_background_color_hover
 
 @mixin contextual
   +contextual_links_region

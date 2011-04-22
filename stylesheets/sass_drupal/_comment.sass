@@ -1,3 +1,6 @@
+$drupal_comment_unpublished_background: #fff4f4 !default
+$drupal_comment_preview_background: #ffffea !default
+
 @mixin comment
   #comments
     margin-top: 15px
@@ -7,10 +10,10 @@
     /* LTR
 
   .comment-unpublished
-    background-color: #fff4f4
+    background-color: $drupal_comment_unpublished_background
 
   .preview .comment
-    background-color: #ffffea
+    background-color: $drupal_comment_preview_background
 
 @mixin comment_rtl
   .indented

@@ -1,3 +1,9 @@
+$drupal_overlay_child_border_radius: 8px !default
+$drupal_overlay_child_background_color: #fff !default
+$drupal_overlay_child_tab_color: #000 !default
+$drupal_overlay_child_tab_color_hover: #fff !default
+$drupal_overlay_child_tab_background_color: #a6a7a2 !default
+
 @mixin overlay_child
   html.js
     background: transparent !important
@@ -25,7 +31,7 @@
     z-index: 100
 
   #overlay-content
-    background: #fff
+    background: $drupal_overlay_child_background_color
     clear: both
     color: #000
     padding: .5em 1em
@@ -49,9 +55,10 @@
 
   #overlay-close
     background: transparent image_url("drupal/close.png") no-repeat
-    -moz-border-radius-topleft: 0
-    -webkit-border-top-left-radius: 0
-    border-top-left-radius: 0
+    @if $drupal_overlay_child_border_radius != 0
+      -moz-border-radius-topleft: 0
+      -webkit-border-top-left-radius: 0
+      border-top-left-radius: 0
     display: block
     height: 26px
     margin: 0
@@ -61,9 +68,10 @@
     width: 26px
     &:hover
       background: transparent image_url("drupal/close.png") no-repeat
-      -moz-border-radius-topleft: 0
-      -webkit-border-top-left-radius: 0
-      border-top-left-radius: 0
+      @if $drupal_overlay_child_border_radius != 0
+        -moz-border-radius-topleft: 0
+        -webkit-border-top-left-radius: 0
+        border-top-left-radius: 0
       display: block
       height: 26px
       margin: 0
@@ -87,12 +95,13 @@
       margin: 0 0 0 -3px
       padding: 0
       a
-        background-color: #a6a7a2
-        -moz-border-radius: 8px 8px 0 0
-        -webkit-border-top-left-radius: 8px
-        -webkit-border-top-right-radius: 8px
-        border-radius: 8px 8px 0 0
-        color: #000
+        background-color: $drupal_overlay_child_tab_background_color
+        @if $drupal_overlay_child_border_radius != 0
+          -moz-border-radius: $drupal_overlay_child_border_radius $drupal_overlay_child_border_radius 0 0
+          -webkit-border-top-left-radius: $drupal_overlay_child_border_radius
+          -webkit-border-top-right-radius: $drupal_overlay_child_border_radius
+          border-radius: $drupal_overlay_child_border_radius $drupal_overlay_child_border_radius 0 0
+        color: $drupal_overlay_child_tab_color
         display: inline-block
         font-size: 11px
         font-weight: bold
@@ -101,12 +110,13 @@
         padding: 0 14px
         text-decoration: none
         &:active, &:visited, &:hover
-          background-color: #a6a7a2
-          -moz-border-radius: 8px 8px 0 0
-          -webkit-border-top-left-radius: 8px
-          -webkit-border-top-right-radius: 8px
-          border-radius: 8px 8px 0 0
-          color: #000
+          background-color: $drupal_overlay_child_tab_background_color
+          @if $drupal_overlay_child_border_radius != 0
+            -moz-border-radius: $drupal_overlay_child_border_radius $drupal_overlay_child_border_radius 0 0
+            -webkit-border-top-left-radius: $drupal_overlay_child_border_radius
+            -webkit-border-top-right-radius: $drupal_overlay_child_border_radius
+            border-radius: $drupal_overlay_child_border_radius $drupal_overlay_child_border_radius 0 0
+          color: $drupal_overlay_child_tab_color
           display: inline-block
           font-size: 11px
           font-weight: bold
@@ -115,19 +125,19 @@
           padding: 0 14px
           text-decoration: none
       &.active a
-        background-color: #fff
+        background-color: $drupal_overlay_child_background_color
         margin: 0
         padding-bottom: 2px
         &.active, &:active, &:visited
-          background-color: #fff
+          background-color: $drupal_overlay_child_background_color
           margin: 0
           padding-bottom: 2px
       a
         &:focus, &:hover
-          color: #fff
+          color: $drupal_overlay_child_tab_color_hover
       &.active a
         &:focus, &:hover
-          color: #000
+          color: $drupal_overlay_child_tab_color
 
   /**
    * Add to shortcuts link
@@ -148,13 +158,14 @@
    * Disable message.
 
   #overlay-disable-message
-    background-color: #fff
+    background-color: $drupal_overlay_child_background_color
     margin: -20px auto 20px
     width: 80%
-    -moz-border-radius: 0 0 8px 8px
-    -webkit-border-bottom-left-radius: 8px
-    -webkit-border-bottom-right-radius: 8px
-    border-radius: 0 0 8px 8px
+    @if $drupal_overlay_child_border_radius != 0
+      -moz-border-radius: 0 0 $drupal_overlay_child_border_radius $drupal_overlay_child_border_radius
+      -webkit-border-bottom-left-radius: $drupal_overlay_child_border_radius
+      -webkit-border-bottom-right-radius: $drupal_overlay_child_border_radius
+      border-radius: 0 0 $drupal_overlay_child_border_radius $drupal_overlay_child_border_radius
 
   .overlay-disable-message-focused
     padding: 0.5em
