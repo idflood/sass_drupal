@@ -1,12 +1,14 @@
 $drupal_comment_unpublished_background: #fff4f4 !default
 $drupal_comment_preview_background: #ffffea !default
+$drupal_comment_margin_top: 15px !default
+$drupal_comment_margin_indented: 25px !default
 
 @mixin comment
   #comments
-    margin-top: 15px
+    margin-top: $drupal_comment_margin_top
 
   .indented
-    margin-left: 25px
+    margin-left: $drupal_comment_margin_indented
     /* LTR
 
   .comment-unpublished
@@ -18,4 +20,4 @@ $drupal_comment_preview_background: #ffffea !default
 @mixin comment_rtl
   .indented
     margin-left: 0
-    margin-right: 25px
+    margin-right: $drupal_comment_margin_indented

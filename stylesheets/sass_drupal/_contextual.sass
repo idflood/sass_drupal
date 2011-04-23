@@ -1,4 +1,6 @@
 $drupal_contextual_icon_image: "drupal/gear-select.png" !default
+$drupal_contextual_trigger_width: 28px !default
+$drupal_contextual_trigger_height: 18px !default
 $drupal_contextual_outline_active: #999 dashed 1px !default
 
 $drupal_contextual_border_radius: 4px !default
@@ -6,7 +8,15 @@ $drupal_contextual_border_color: #ccc !default
 $drupal_contextual_background_color: #fff !default
 
 $drupal_contextual_link_color: #333 !important !default
+$drupal_contextual_link_margin: 0.25em 0 !default
+$drupal_contextual_link_padding: 0.25em 1em 0.25em 0.5em !default
+$drupal_contextual_link_list_padding: 0.25em 0 !default
 $drupal_contextual_background_color_hover: #bfdcee !default
+
+$drupal_contextual_link_font_size: 90% !default
+
+$drupal_contextual_position_x: 5px !default
+$drupal_contextual_position_y: 2px !default
 
 @mixin contextual_links_region
   .contextual-links-region
@@ -19,11 +29,11 @@ $drupal_contextual_background_color_hover: #bfdcee !default
 @mixin contextual_links
   div.contextual-links-wrapper
     display: none
-    font-size: 90%
+    font-size: $drupal_contextual_link_font_size
     position: absolute
-    right: 5px
+    right: $drupal_contextual_position_x
     /* LTR
-    top: 2px
+    top: $drupal_contextual_position_y
     z-index: 999
 
   html.js div.contextual-links-wrapper
@@ -33,13 +43,13 @@ $drupal_contextual_background_color_hover: #bfdcee !default
     background: transparent image_url($drupal_contextual_icon_image) no-repeat 2px 0
     border: 1px solid transparent
     display: none
-    height: 18px
+    height: $drupal_contextual_trigger_height
     margin: 0
     padding: 0 2px
     outline: none
     text-indent: 34px
     /* LTR
-    width: 28px
+    width: $drupal_contextual_trigger_width
     overflow: hidden
     @if $drupal_contextual_border_radius != 0
       -khtml-border-radius: $drupal_contextual_border_radius
@@ -68,11 +78,11 @@ $drupal_contextual_background_color_hover: #bfdcee !default
       border: 1px solid $drupal_contextual_border_color
       display: none
       margin: 0
-      padding: 0.25em 0
+      padding: $drupal_contextual_link_list_padding
       position: absolute
       right: 0
       text-align: left
-      top: 18px
+      top: $drupal_contextual_trigger_height
       white-space: nowrap
       @if $drupal_contextual_border_radius != 0
         -moz-border-radius: $drupal_contextual_border_radius 0 $drupal_contextual_border_radius $drupal_contextual_border_radius
@@ -106,8 +116,8 @@ $drupal_contextual_background_color_hover: #bfdcee !default
   ul.contextual-links li a
     color: $drupal_contextual_link_color
     display: block
-    margin: 0.25em 0
-    padding: 0.25em 1em 0.25em 0.5em
+    margin: $drupal_contextual_link_margin
+    padding: $drupal_contextual_link_padding
     &:hover
       background-color: $drupal_contextual_background_color_hover
 
@@ -117,7 +127,7 @@ $drupal_contextual_background_color_hover: #bfdcee !default
   
 @mixin contextual_rtl
   div.contextual-links-wrapper
-    left: 5px
+    left: $drupal_contextual_position_x
     right: auto
     ul.contextual-links
       @if $drupal_contextual_border_radius != 0

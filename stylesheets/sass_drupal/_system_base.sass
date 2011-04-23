@@ -1,3 +1,12 @@
+$drupal_autocomplete_progress_bar_color: #fff !default
+$drupal_autocomplete_progress_filled_color: #000 !default
+
+$drupal_progress_image: "drupal/throbber.gif" !default
+$drupal_textarea_grippie_image: "drupal/grippie.png" !default
+$drupal_draggable_image: "drupal/draggable.png" !default
+$drupal_tree_image: "drupal/tree.png" !default
+$drupal_tree_bottom_image: "drupal/tree-bottom.png" !default
+
 @mixin system_base_autocomplete
   html.js input
     &.form-autocomplete
@@ -26,7 +35,7 @@
   html.js
     input
       &.form-autocomplete
-        background-image: image_url("drupal/throbber.gif")
+        background-image: image_url($drupal_progress_image)
         background-position: 100% 2px
         /* LTR
         background-repeat: no-repeat
@@ -61,10 +70,10 @@
 
   .progress
     .bar
-      background-color: #fff
+      background-color: $drupal_autocomplete_progress_bar_color
       border: 1px solid
     .filled
-      background-color: #000
+      background-color: $drupal_autocomplete_progress_filled_color
       height: 1.5em
       width: 5px
     .percentage
@@ -81,7 +90,7 @@
     float: left
     /* LTR
     .throbber
-      background: transparent image_url("drupal/throbber.gif") no-repeat 0px -18px
+      background: transparent image_url($drupal_progress_image) no-repeat 0px -18px
       float: left
       /* LTR
       height: 15px
@@ -120,7 +129,7 @@
     box-sizing: border-box
 
   .resizable-textarea .grippie
-    background: #eeeeee image_url("drupal/grippie.png") no-repeat center 2px
+    background: #eeeeee image_url($drupal_textarea_grippie_image) no-repeat center 2px
     border: 1px solid #ddd
     border-top-width: 0
     cursor: s-resize
@@ -168,7 +177,7 @@
       &:hover
         text-decoration: none
       .handle
-        background: image_url("drupal/draggable.png") no-repeat 0 0
+        background: image_url($drupal_draggable_image) no-repeat 0 0
         height: 13px
         margin-top: 4px
         width: 13px
@@ -186,13 +195,13 @@
       /* LTR
       width: 20px
     &.tree-child
-      background: image_url("drupal/tree.png") no-repeat 11px center
+      background: image_url($drupal_tree_image) no-repeat 11px center
       /* LTR
     &.tree-child-last
-      background: image_url("drupal/tree-bottom.png") no-repeat 11px center
+      background: image_url($drupal_tree_bottom_image) no-repeat 11px center
       /* LTR
     &.tree-child-horizontal
-      background: image_url("drupal/tree.png") no-repeat -11px center
+      background: image_url($drupal_tree_image) no-repeat -11px center
 
   .tabledrag-toggle-weight-wrapper
     text-align: right

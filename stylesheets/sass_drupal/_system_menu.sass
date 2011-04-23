@@ -1,3 +1,8 @@
+$drupal_menu_expanded_image: "drupal/menu-expanded.png" !default
+$drupal_menu_collapsed_image: "drupal/menu-collapsed.png" !default
+$drupal_menu_collapsed_rtl_image: "drupal/menu-collapsed-rtl.png" !default
+$drupal_menu_leaf_image: "drupal/menu-leaf.png" !default
+
 @mixin system_menu_tree
   ul
     &.menu
@@ -10,14 +15,14 @@
         /* LTR
     li
       &.expanded
-        list-style-image: image_url("drupal/menu-expanded.png")
+        list-style-image: image_url($drupal_menu_expanded_image)
         list-style-type: circle
       &.collapsed
-        list-style-image: image_url("drupal/menu-collapsed.png")
+        list-style-image: image_url($drupal_menu_collapsed_image)
         /* LTR
         list-style-type: disc
       &.leaf
-        list-style-image: image_url("drupal/menu-leaf.png")
+        list-style-image: image_url($drupal_menu_leaf_image)
         list-style-type: square
   
   li
@@ -38,7 +43,7 @@
       li
         margin: 0 0.5em 0 0
     li.collapsed
-      list-style-image: image_url("drupal/menu-collapsed-rtl.png")
+      list-style-image: image_url($drupal_menu_collapsed_rtl_image)
 
   li
     &.expanded, &.collapsed, &.leaf

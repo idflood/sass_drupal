@@ -1,4 +1,6 @@
 $drupal_vertical_tabs_border: 1px solid #ccc !default
+$drupal_vertical_tabs_list_background: #eee !default
+$drupal_vertical_tabs_list_selected_background: #fff !default
 
 @mixin vertical_tabs
   div.vertical-tabs
@@ -31,7 +33,7 @@ $drupal_vertical_tabs_border: 1px solid #ccc !default
     ul
       &.vertical-tabs-list
         li
-          background: #eee
+          background: $drupal_vertical_tabs_list_background
           border: $drupal_vertical_tabs_border
           border-top: 0
           padding: 0
@@ -49,7 +51,7 @@ $drupal_vertical_tabs_border: 1px solid #ccc !default
                 text-decoration: underline
               outline: 1px dotted
           &.selected
-            background-color: #fff
+            background-color: $drupal_vertical_tabs_list_selected_background
             border-right-width: 0
             /* LTR
         .selected strong

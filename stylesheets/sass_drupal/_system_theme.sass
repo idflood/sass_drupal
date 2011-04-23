@@ -1,3 +1,14 @@
+$drupal_progress_background_color: #ccc !default
+$drupal_progress_border_color: #666 !default
+$drupal_progress_border_radius: 3px !default
+$drupal_progress_filled_background: #0072b9 image_url("drupal/progress.gif") !default
+
+$drupal_fieldset_collapsible_image: "drupal/menu-expanded.png" !default
+$drupal_fieldset_collapsed_image: "drupal/menu-collapsed.png" !default
+$drupal_fieldset_collapsed_rtl_image: "drupal/menu-collapsed-rtl.png" !default
+
+$drupal_more_help_image: "drupal/help.png" !default
+
 @mixin system_theme_html
   fieldset
     margin-bottom: 1em
@@ -121,7 +132,7 @@
     text-align: right
     /* LTR
     a
-      background: image_url("drupal/help.png") 0 50% no-repeat
+      background: image_url($drupal_more_help_image) 0 50% no-repeat
       /* LTR
       padding: 1px 0 1px 20px
       /* LTR
@@ -154,12 +165,12 @@
 @mixin system_collapsible_fieldset
   html.js fieldset
     &.collapsible .fieldset-legend
-      background: image_url("drupal/menu-expanded.png") 5px 65% no-repeat
+      background: image_url($drupal_fieldset_collapsible_image) 5px 65% no-repeat
       /* LTR
       padding-left: 15px
       /* LTR
     &.collapsed .fieldset-legend
-      background: image_url("drupal/menu-collapsed.png") 5px 50% no-repeat
+      background: image_url($drupal_fieldset_collapsed_image) 5px 50% no-repeat
 
   .fieldset-legend span.summary
     color: #999
@@ -173,7 +184,7 @@
       padding-left: 0
       padding-right: 15px
     &.collapsed .fieldset-legend
-      background-image: image_url("drupal/menu-collapsed-rtl.png")
+      background-image: image_url($drupal_fieldset_collapsed_rtl_image)
       background-position: 98% 50%
       
 @mixin system_tabledrag
@@ -200,14 +211,15 @@
   .progress
     font-weight: bold
     .bar
-      background: #ccc
-      border-color: #666
+      background: $drupal_progress_background_color
+      border-color: $drupal_progress_border_color
       margin: 0 0.2em
-      -moz-border-radius: 3px
-      -webkit-border-radius: 3px
-      border-radius: 3px
+      @if $drupal_progress_border_radius != 0
+        -moz-border-radius: $drupal_progress_border_radius
+        -webkit-border-radius: $drupal_progress_border_radius
+        border-radius: $drupal_progress_border_radius
     .filled
-      background: #0072b9 image_url("drupal/progress.gif")
+      background: $drupal_progress_filled_background
 
 @mixin system_theme
   +system_theme_html

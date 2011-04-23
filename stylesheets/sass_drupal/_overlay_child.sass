@@ -4,6 +4,21 @@ $drupal_overlay_child_tab_color: #000 !default
 $drupal_overlay_child_tab_color_hover: #fff !default
 $drupal_overlay_child_tab_background_color: #a6a7a2 !default
 
+$drupal_overlay_title_size: 20px !default
+$drupal_overlay_title_color: #fff !default
+$drupal_overlay_title_padding: #fff !default
+
+$drupal_overlay_content_padding: 0.3em 0 !default
+
+$drupal_overlay_min_width: 700px !default
+$drupal_overlay_min_height: 100px !default
+
+$drupal_overlay_close_width: 26px !default
+$drupal_overlay_close_height: 26px !default
+$drupal_overlay_close_image: "drupal/close.png" !default
+
+$drupal_overlay_tabs_right: 20px !default
+
 @mixin overlay_child
   html.js
     background: transparent !important
@@ -17,11 +32,11 @@ $drupal_overlay_child_tab_background_color: #a6a7a2 !default
   #overlay
     display: table
     margin: 0 auto
-    min-height: 100px
-    min-width: 700px
+    min-height: $drupal_overlay_min_height
+    min-width: $drupal_overlay_min_width
     position: relative
     padding: .2em
-    padding-right: 26px
+    padding-right: $drupal_overlay_close_width
     width: 88%
 
   #overlay-titlebar
@@ -34,18 +49,18 @@ $drupal_overlay_child_tab_background_color: #a6a7a2 !default
     background: $drupal_overlay_child_background_color
     clear: both
     color: #000
-    padding: .5em 1em
+    padding: $drupal_overlay_content_padding
     position: relative
 
   #overlay-title-wrapper
     overflow: hidden
 
   #overlay-title
-    color: #fff
+    color: $drupal_overlay_title_color
     float: left
-    font-size: 20px
+    font-size: $drupal_overlay_title_size
     margin: 0
-    padding: 0.3em 0
+    padding: $drupal_overlay_content_padding
     &:active, &:focus
       outline: 0
 
@@ -54,31 +69,31 @@ $drupal_overlay_child_tab_background_color: #a6a7a2 !default
     right: 0
 
   #overlay-close
-    background: transparent image_url("drupal/close.png") no-repeat
+    background: transparent image_url($drupal_overlay_close_image) no-repeat
     @if $drupal_overlay_child_border_radius != 0
       -moz-border-radius-topleft: 0
       -webkit-border-top-left-radius: 0
       border-top-left-radius: 0
     display: block
-    height: 26px
+    height: $drupal_overlay_close_height
     margin: 0
     padding: 0
     /* Replace with position:fixed to get a scrolling close button.
     position: absolute
-    width: 26px
+    width: $drupal_overlay_close_width
     &:hover
-      background: transparent image_url("drupal/close.png") no-repeat
+      background: transparent image_url($drupal_overlay_close_image) no-repeat
       @if $drupal_overlay_child_border_radius != 0
         -moz-border-radius-topleft: 0
         -webkit-border-top-left-radius: 0
         border-top-left-radius: 0
       display: block
-      height: 26px
+      height: $drupal_overlay_close_height
       margin: 0
       padding: 0
       /* Replace with position:fixed to get a scrolling close button.
       position: absolute
-      width: 26px
+      width: $drupal_overlay_close_width
 
   /**
    * Tabs on the overlay.
@@ -87,7 +102,7 @@ $drupal_overlay_child_tab_background_color: #a6a7a2 !default
     line-height: 27px
     margin: -28px 0 0 0
     position: absolute
-    right: 20px
+    right: $drupal_overlay_tabs_right
     text-transform: uppercase
     li
       display: inline
